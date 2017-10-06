@@ -12,7 +12,12 @@ export class ProfileComponent {
   userData = {};
   constructor(private route: ActivatedRoute, private dataService: DataService, private router: Router) {
     this.route.params.subscribe(params => { 
-      console.log(params); this.userData =  dataService.getDummyData(params.userName); }
+      console.log(params); 
+      this.userData =  dataService.getDummyData(params.userName); 
+      if(!this.userData){
+        this.router.navigate(['pageNotFound']);
+      }
+    }
     );
   }
 
