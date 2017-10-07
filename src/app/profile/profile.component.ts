@@ -9,15 +9,22 @@ import { DataService } from "../dataService/data.service";
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent {
-  userData = {};
+  userData = {
+    userName: "",
+    name: "",
+    age: '',
+    profession: "",
+    mobile: "",
+    profileImageUrl: ""
+  };
   constructor(private route: ActivatedRoute, private dataService: DataService, private router: Router) {
-    this.route.params.subscribe(params => { 
-      console.log(params); 
-      this.userData =  dataService.getDummyData(params.userName); 
-      if(!this.userData){
-        this.router.navigate(['pageNotFound']);
+    this.route.params.subscribe(params => {
+        console.log(params);
+        this.userData =  dataService.getDummyData(params.userName);
+        if(!this.userData){
+          this.router.navigate(['pageNotFound']);
+        }
       }
-    }
     );
   }
 
