@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 
 export class PageNotFoundComponent{
     message = 'Page you are looking for does not exist !';
-    randomQuote = {};
+    randomQuote : any;
     constructor(private router: Router) {
       this.randomQuote= PageNotFoundComponent.getRandomQuotes(this.quotes);
 
