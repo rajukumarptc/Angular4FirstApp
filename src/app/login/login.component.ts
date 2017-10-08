@@ -15,6 +15,8 @@ export class LoginComponent {
   }
   errorMessage = "";
   userName = "";
+  title = 'Profile Manager';
+
 
   goToProfile() {
 

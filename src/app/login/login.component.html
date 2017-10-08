@@ -1,23 +1,29 @@
-<form action="s">
-  <div class="imgcontainer">
-    <img src="https://www.w3schools.com/howto/img_avatar2.png" alt="Avatar" class="avatar">
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="wrap">
+        <div style="text-align:center">
+          <br>
+          <h1 style="color: white">
+            Welcome to {{title}}
+          </h1>
+        </div>
+
+        <div [hidden]="!errorMessage" class="alert alert-danger alert-dismissable">
+          <a class="panel-close close" data-dismiss="alert" (click)="errorMessage=''">×</a>
+          <i class="fa fa-coffee"></i>
+          {{errorMessage}}
+        </div>
+
+
+        <p class="form-title">Sign In</p>
+        <form class="login">
+          <input type="text" placeholder="Username" [(ngModel)]="userName" name="userName"/>
+          <input type="submit" value="Sign In" class="btn btn-success btn-sm" (click)="goToProfile()" />
+          <input type="submit" value="Sign Up" class="btn btn-primary btn-sm" (click)="createProfile()" />
+
+        </form>
+      </div>
+    </div>
   </div>
-
-  <div class="container">
-    <!-- <label><b>Username</b></label> -->
-    <p style="color:red">{{errorMessage}}</p>
-    <input type="text" placeholder="Enter Username" name="uname" [(ngModel)]="userName" required>
-
-    <!-- <label><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="psw" required> -->
-
-    <button (click)="goToProfile()" type="submit">Login</button>
-    <!-- <input type="checkbox" checked="checked"> Remember me -->
-    <button (click)="createProfile()">Sign Up</button>
-  </div>
-
-  <!-- <div class="container" style="background-color:#f1f1f1">
-      <button type="button" class="cancelbtn">Cancel</button>
-      <span class="psw">Forgot <a href="#">password?</a></span>
-    </div> -->
-</form>
+</div>

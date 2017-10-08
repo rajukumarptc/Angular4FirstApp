@@ -1,1 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+@import url(http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css);
+
+body {
+  /*background: url('http://i.imgur.com/Au8To6H.jpg') fixed;*/
+  /*background: url('https://cdn.pixabay.com/photo/2017/08/05/10/15/sunset-2582656_960_720.jpg') fixed;*/
+  /*background: url('https://cdn.pixabay.com/photo/2016/01/19/17/16/rainbow-background-1149610_960_720.jpg') fixed;*/
+  /*background: url('https://cdn.pixabay.com/photo/2014/10/04/12/23/streaming-472987_960_720.jpg') fixed;*/
+  /*background: url('http://farm3.staticflickr.com/2832/12303719364_c25cecdc28_b.jpg') fixed;*/
+  background: url('assets/images/transfer-2601278_1920.jpg') fixed;
+  background-size: cover;
+  padding: 0;
+  margin: 0;
+}
