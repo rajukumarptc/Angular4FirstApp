@@ -1,32 +1,20 @@
 import { Injectable } from "@angular/core";
+import {FirebaseListObservable} from "angularfire2/database-deprecated";
 
 @Injectable()
 export class DataService {
 
-    users = {
-        "raju": {
-            userName:'raju',
-            name: "Raju Kumar",
-            age: 28,
-            profession: "Software Engineer",
-            mobile:"9716009978",
-            profileImageUrl:""
-        },
-        "shantanu": {
-            userName:'shantanu',            
-            name: "Shantanu Mahakale",
-            age: 26,
-            profession: "Senior Software Engineer",
-            mobile:"8939619253",
-            profileImageUrl:""
-            
-        },
+    dbUsers = {};
+    dbRef :FirebaseListObservable<any[]>;
 
-    }
     getDummyData(name) {
-        return this.users[name];
+        return this.dbUsers[name];
     }
     getUsers(){
-        return this.users;
+        return this.dbUsers;
+    }
+
+    addUser(user){
+      this.dbRef.push(user);
     }
 }

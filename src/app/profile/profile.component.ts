@@ -31,4 +31,7 @@ export class ProfileComponent {
   goHome(){
     this.router.navigate(['login']);
   }
+
+  deleteMyAccount(user){
+  }
 }

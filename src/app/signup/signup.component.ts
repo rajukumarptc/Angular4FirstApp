@@ -49,20 +49,21 @@ export class SignupComponent {
             return;
         }
 
-
-
-        this.userData = {
-            userName: this.userName,
-            name: this.name,
-            age: this.age,
-            profession: this.profession,
-            mobile: this.mobile,
-            profileImageUrl: this.profileImageUrl
-        }
-        this.dataService.getUsers()[this.userName] = this.userData;
+        this.prepareUserObject();
+        this.dataService.addUser(this.userData);
         this.router.navigate(['/profile', this.userName]);
     }
     goHome() {
         this.router.navigate(['/login']);
+    }
+    prepareUserObject(){
+      this.userData = {
+        userName: this.userName,
+        name: this.name,
+        age: this.age ? this.age : "",
+        profession: this.profession ? this.profession : "",
+        mobile: this.mobile ? this.mobile : "",
+        profileImageUrl: this.profileImageUrl ? this.profileImageUrl : ""
+      }
     }
 }
