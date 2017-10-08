@@ -4,12 +4,10 @@
 const express = require('express');
 const path = require('path');
 const app = express();
-// ...
-// For all GET requests, send back index.html
-// so that PathLocationStrategy can be used
-app.get('/*', function(req, res) {
-  res.sendFile(path.join(__dirname + '/dist/index.html'));
-});
+
+
+app.use(express.static(__dirname + '/dist'));
+app.listen(process.env.PORT || 8080);
 
 const forceSSL = function() {
   return function (req, res, next) {
@@ -20,8 +18,10 @@ const forceSSL = function() {
     }
     next();
   }
-}
-// Instruct the app
-// to use the forceSSL
-// middleware
+};
+
 app.use(forceSSL());
+
+app.get('/*', function(req, res) {
+  res.sendFile(path.join(__dirname + '/dist/index.html'));
+});
