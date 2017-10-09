@@ -26,7 +26,7 @@ export class SignupComponent {
     userData: {};
 
     createProfile() {
-        if (this.dataService.getDummyData(this.userName) !== undefined) {
+        if (this.dataService.getUser(this.userName) !== undefined) {
             console.log("user already exists");
             this.errorMessage = "user already exists";
             return;

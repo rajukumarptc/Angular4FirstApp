@@ -19,14 +19,13 @@ export class LoginComponent {
 
 
   goToProfile() {
-
     if(!this.userName){
       console.log("username required");
       this.errorMessage = "username required";
       return;
     }
 
-    if(!this.dataService.getDummyData(this.userName)){
+    if(!this.dataService.getUser(this.userName)){
       console.log("this user does not exist");
       this.errorMessage = "this user does not exist";
       return;

@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import {FirebaseListObservable} from "angularfire2/database-deprecated";
+import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database-deprecated';
 
 @Injectable()
 export class DataService {
@@ -7,7 +7,18 @@ export class DataService {
     dbUsers = {};
     dbRef :FirebaseListObservable<any[]>;
 
-    getDummyData(name) {
+  constructor(database: AngularFireDatabase) {
+    this.dbRef = database.list('/users');
+    database.list('/users', { preserveSnapshot: true})
+      .subscribe(snapshots=>{
+        console.log("data fetched");
+        snapshots.forEach(snapshot => {
+          this.dbUsers[snapshot.val().userName] = snapshot.val();
+        });
+      });
+  }
+
+    getUser(name) {
         return this.dbUsers[name];
     }
     getUsers(){

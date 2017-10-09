@@ -20,7 +20,7 @@ export class ProfileComponent {
   constructor(private route: ActivatedRoute, private dataService: DataService, private router: Router) {
     this.route.params.subscribe(params => {
         console.log(params);
-        this.userData =  dataService.getDummyData(params.userName);
+        this.userData =  dataService.getUser(params.userName);
         if(!this.userData){
           this.router.navigate(['pageNotFound']);
         }
